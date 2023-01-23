@@ -1,0 +1,14 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.lis-tema-box{
+    background-color: #7ED957 !important;
+    color: white !important; 
+    box-shadow: 0 0 20px 8px #54a730 ;
+    padding: 15px;
+    width:fit-content ;
+    margin: 50px;
+    margin-top: 15px;
+    text-align: center;
+}
