@@ -81,7 +81,6 @@ function Login() {
             </Grid>
             <Grid alignItems='center' xs={9} sm={4}>
                 <Box marginTop={6}>
-
                     <form onSubmit={onSubmit} className='fundoLogin'>
                         <Box >
                             {matches2 ? null : <Typography variant="h4" className='login' >Login</Typography>}

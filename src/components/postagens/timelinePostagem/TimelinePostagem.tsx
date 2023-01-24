@@ -4,12 +4,12 @@ import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Service'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import { Box, Grid } from '@mui/material';
-import './ListaPostagem.css';
+import './TimelinePostagem.css';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
-function ListaPostagem() {
+function TimelinePostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
   let navigate = useNavigate();
   const token = useSelector<TokenState, TokenState["tokens"]>(
@@ -51,7 +51,7 @@ function ListaPostagem() {
     <>
       {
         posts.map(post => (
-          <Grid alignItems='center' xs={12} sm={5}>
+          <Grid alignContent='center' justifyContent='center' xs={12} sm={5}>
             <Box m={2} className='justifyCard' >
               <Card>
                 <CardContent>
@@ -65,24 +65,6 @@ function ListaPostagem() {
                     {post.texto}
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Box display="flex" justifyContent="center" mb={1.5}>
-                    <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
-                      <Box mx={1}>
-                        <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                          Editar
-                        </Button>
-                      </Box>
-                    </Link>
-                    <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                      <Box mx={1}>
-                        <Button variant="contained" size='small' color="secondary">
-                          Excluir
-                        </Button>
-                      </Box>
-                    </Link>
-                  </Box>
-                </CardActions>
               </Card>
             </Box>
           </Grid>
@@ -92,4 +74,4 @@ function ListaPostagem() {
   )
 }
 
-export default ListaPostagem;
+export default TimelinePostagem;
