@@ -1,26 +1,36 @@
-.text-decorator-none{
-    text-decoration: none;
+.cardProp{
+    min-width:307px !important;
+    max-width: 307px !important;
+    margin-top: 5% !important;
+    background-color: lightgreen !important;
 }
 
-.lis-tema-box{
-    background-color: #7ED957 !important;
-    color: white !important; 
-    box-shadow: 0 0 20px 8px #54a730 ;
-    padding: 15px;
-    width:fit-content ;
-    margin: 50px;
-    margin-top: 15px;
-    text-align: center;
+.tituloCard{
+    font-weight: bold !important;
+    color: darkgreen !important;
+    font-size: larger !important;
+    margin-bottom:7px !important;
+    font-family: fangsong !important;
 }
 
-.justifyCard{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
+.textoCard{
+    color: black !important;
 }
 
-/* .caixa {
-    background:linear-gradient(rgba(0, 250, 75, 0.5),transparent);
-} */
+.linksCards{
+    text-decoration: none !important;
+    cursor: pointer !important;
+    color: black !important;
+}
+
+.nomeCards{
+    text-transform: 'capitalize' !important;
+    font-size: large !important;
+    font-weight: bold !important;
+    font-family: cursive !important;
+}
+
+.imgCards{
+    width: 102%;
+    border-radius: 50%;
+}

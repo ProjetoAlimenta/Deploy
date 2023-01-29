@@ -58,7 +58,7 @@ function ListaTema() {
               Tema
             </Typography>
             <Typography variant="h5" component="h2">
-             {tema.descricao}
+             {tema.temaPrincipal}
             </Typography>
           </CardContent>
           <CardActions>

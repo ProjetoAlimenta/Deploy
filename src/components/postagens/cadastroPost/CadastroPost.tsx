@@ -1,18 +1,22 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Grid } from "@material-ui/core";
 import './CadastroPost.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import User from '../../../models/User';
+import { Box } from '@mui/material';
 
 function CadastroPost() {
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([])
+    const [usuarios, setUsuarios] = useState<User[]>([])
+
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     );
@@ -37,23 +41,35 @@ function CadastroPost() {
     const [tema, setTema] = useState<Tema>(
         {
             id: 0,
-            temaPrincipal: 'Fome',
-            descricao: ''
+            temaPrincipal: ''
         })
+
+    const [usuario, setUsuario] = useState<User>(
+        {
+            id: 0,
+            nome: '',
+            usuario: '',
+            senha: '',
+            foto: '',
+        })
+
+
     const [postagem, setPostagem] = useState<Postagem>({
         id: 0,
         titulo: '',
         texto: '',
-        data: '2022-12-23T00:00:00.000Z',
-        tema: null
+        tema: null,
+        usuario: null
+
     })
 
     useEffect(() => {
         setPostagem({
             ...postagem,
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
-    }, [tema])
+    }, [tema, usuario])
 
     useEffect(() => {
         getTemas()
@@ -70,6 +86,21 @@ function CadastroPost() {
         })
     }
 
+    async function getUsers() {
+        await busca("/usuarios/all", setUsuarios, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
+    useEffect(() => {
+        getUsers()
+        if (id !== undefined) {
+            findByIdPostagem(id)
+        }
+    }, [id])
+
     async function findByIdPostagem(id: string) {
         await buscaId(`postagens/${id}`, setPostagem, {
             headers: {
@@ -83,7 +114,8 @@ function CadastroPost() {
         setPostagem({
             ...postagem,
             [e.target.name]: e.target.value,
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
 
     }
@@ -129,42 +161,34 @@ function CadastroPost() {
     }
 
     function back() {
-        navigate('/postagens')
+        navigate('/home')
     }
 
     return (
         <>
-            <Grid className='centralizarImg'>
-                <img src='https://cdn.discordapp.com/attachments/1011758147494498377/1055504651795054712/sale-removebg-preview.png'></img>
-
-            </Grid>
-
-
-            <Container maxWidth="sm" className="topo">
-                <form onSubmit={onSubmit}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} sm={12}>
+            <Grid container direction='row' justifyContent='center' alignItems='center'>
+                <Grid item xs={6} sm={6} alignItems='center' >
+                    <form onSubmit={onSubmit}>
+                        <Grid xs={6}>
                             <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
                                 id="titulo"
                                 label="Titulo"
                                 variant="outlined"
                                 name="titulo"
                                 margin="normal"
-                                inputProps={{ maxLength: 100 }}
                                 fullWidth />
                         </Grid>
-                        <Grid item xs={12} sm={12}>
+                        <Box>
                             <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
                                 id="texto"
-                                label="TEXTO"
+                                label="O que está pensando?"
                                 name="texto"
                                 variant="filled"
-                                margin="normal"
-                                inputProps={{ maxLength: 1000 }}
+                                margin="dense"
                                 multiline />
-                        </Grid>
-                        <Grid item xs={12} sm={12}>
-                            <FormControl >
+                        </Box>
+                        <Grid>
+                            <Grid>
                                 <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                                 <Select
                                     labelId="demo-simple-select-helper-label"
@@ -176,25 +200,53 @@ function CadastroPost() {
                                     })}>
                                     {
                                         temas.map(tema => (
-                                            <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
+                                            <MenuItem value={tema.id}>{tema.temaPrincipal}</MenuItem>
                                         ))
                                     }
                                 </Select>
-                                <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                                <Button type="submit" variant="contained" color="primary">
-                                    Finalizar
-                                </Button>
-                            </FormControl>
+                                <FormHelperText>Escolha um tema para sua postagem</FormHelperText>
+                            </Grid>
+                            <Grid>
+                                <InputLabel id="demo-simple-select-helper-label">Usuário</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-helper-label"
+                                    id="demo-simple-select-helper"
+                                    onChange={(e) => buscaId(`/usuarios/${e.target.value}`, setUsuario, {
+                                        headers: {
+                                            'Authorization': token
+                                        }
+                                    })}>
+                                    {
+                                        usuarios.map(usuario => (
+                                            <MenuItem value={usuario.id}>{usuario.nome}</MenuItem>
+                                        ))
+                                    }
+                                </Select>
+                                <FormHelperText>Usuário para a postagem</FormHelperText>
+                            </Grid>
+                            <Grid>
+                                <Box marginTop={2} textAlign='center' display='flex' alignItems='center' justifyContent='space-evenly'>
+                                    <Box>
+                                        <Button type="submit" variant="contained" color="primary">
+                                            Finalizar
+                                        </Button>
+                                    </Box>
+                                    <Box>
+                                        <Button variant='contained' color='secondary'>
+                                            <Link to='/home' className='text-decorator-none'>
+                                                Voltar
+                                            </Link>
+                                        </Button>
+                                    </Box>
+                                </Box>
+                            </Grid>
+
                         </Grid>
-
-                    </Grid>
-                </form>
-            </Container>
-
-
+                    </form>
+                </Grid >
+            </Grid>
         </>
     )
-
 }
 
 export default CadastroPost;

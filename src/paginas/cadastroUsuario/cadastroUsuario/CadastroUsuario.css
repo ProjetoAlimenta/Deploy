@@ -29,3 +29,16 @@
     background:linear-gradient(rgba(0, 250, 75, 0.5),transparent);
     min-height: 100vh;
 }
+
+.textocadastro {
+    padding-left: 5px;
+    font-size:unset
+}
+
+.cadastre{
+    color:black
+}
+
+.registrar{
+    background-color: #28c728 !important;
+}

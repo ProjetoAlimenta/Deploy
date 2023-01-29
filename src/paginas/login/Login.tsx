@@ -8,6 +8,7 @@ import './Login.css';
 import { useDispatch } from 'react-redux';
 import { addToken } from "../../store/tokens/actions";
 import { toast } from 'react-toastify';
+import ModalCadastro from '../cadastroUsuario/modalCadastro/ModalCadastro';
 
 function Login() {
     let navigate = useNavigate();
@@ -67,6 +68,8 @@ function Login() {
 
     const matches = useMediaQuery('(max-width:600px)');
     const matches2 = useMediaQuery('(min-width:600px)');
+    const matches3 = useMediaQuery('(max-width:1023px)');
+    const matches4 = useMediaQuery('(min-width:1023px)');
 
 
     return (
@@ -75,7 +78,7 @@ function Login() {
                 <Box>
                     {matches ? null : <Typography variant="h4" gutterBottom color="textPrimary" component="h3" className='txt1'>Bem vindo ao</Typography>}
                     {matches ? null : <Typography variant="h4" gutterBottom color="textPrimary" component="h3" className='txt2' >Aliment<span className='colorGreen'>Ação</span></Typography>}
-                    {matches ? null : <p  className='txt4'>Lutando por um Brasil mais <span className='colorGreen verde'>Verde</span></p>}
+                    {matches ? null : <p className='txt4'>Lutando por um Brasil mais <span className='colorGreen verde'>Verde</span></p>}
                     {matches ? null : <Typography variant="h5" gutterBottom color="textPrimary" component="h5" className='txt3'>Aqui você terá a oportunidade de divulgar informações e idéias relacionadas a fome no Brasil</Typography>}
                 </Box>
             </Grid>
@@ -106,15 +109,22 @@ function Login() {
                             </Button>
                         </Box>
                         <Divider />
-                        <Box marginTop={2} marginBottom={2} textAlign='center'>
-                            <Button type='submit' variant='contained' className='Cadastrar' >
-                                <Link className='text-decorator-none' to='/cadastrousuario'>
-                                    Cadastrar
-                                </Link>
-                            </Button>
-                        </Box>
-
-
+                        {matches4 ? null :
+                            <Box marginTop={2} marginBottom={2} textAlign='center'>
+                                <Button type='submit' variant='contained' className='Cadastrar' >
+                                    <Link className='text-decorator-none' to='/cadastrousuario'>
+                                        Cadastrar
+                                    </Link>
+                                </Button>
+                            </Box>
+                        }
+                        {matches3 ? null :
+                            <Box marginTop={2} marginBottom={2} textAlign='center'>
+                                <Box marginRight={1}>
+                                    <ModalCadastro />
+                                </Box>
+                            </Box>
+                        }
                     </form>
                 </Box>
             </Grid>

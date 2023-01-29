@@ -26,8 +26,8 @@
     color: rgb(37, 37, 37);
 }
 
-.fontblack{
-    color:black;
+.fontpreto{
+    color:black !important;
     font-weight: 700 !important;
 }
 

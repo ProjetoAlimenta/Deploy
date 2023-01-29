@@ -2,12 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
-import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+import CadastroUsuario from './paginas/cadastroUsuario/cadastroUsuario/CadastroUsuario';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
 import './App.css';
 import ListaTema from './components/temas/listatema/ListaTema';
-import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
 import CadastroTema from './components/temas/cadastroTema/CadastroTema';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
@@ -36,8 +35,6 @@ function App() {
             <Route path="/cadastrousuario" element={<CadastroUsuario />} />
 
             <Route path="/temas" element={<ListaTema />} />
-
-            <Route path="/postagens" element={<ListaPostagem />} />
 
             <Route path="/formularioPostagem" element={<CadastroPost />} />
 

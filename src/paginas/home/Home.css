@@ -21,14 +21,6 @@
     background:linear-gradient(rgba(0, 250, 75, 0.5),transparent);
 }
 
-.imagem2{
-    background-image: url(img/home2.png);
-    background-repeat: no-repeat;
-    width: 100vh;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
 .t1 {
     color: #000000;
     font-weight: 700 !important;

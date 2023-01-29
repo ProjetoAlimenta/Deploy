@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import './Contatos.css'
 
 function Contatos() {
 
@@ -17,7 +18,7 @@ function Contatos() {
                     </a>
                     <Grid className="property-description">
                         <h5>Sérgio Luiz</h5>
-                        <p> 21 Anos Estudante de Análise e Desenvolvimento de Sistemas | Desenvolvedor Web Fullstack Jr | Javascript | Java | Python | Typescript | NodeJs | NestJs | MySQL | HTML | CSS | ReactJs |</p>
+                        <p> 22 Anos Estudante de Análise e Desenvolvimento de Sistemas | Desenvolvedor Web Fullstack Jr | Javascript | Java | Python | Typescript | NodeJs | NestJs | MySQL | MaterialUI | Bootstrap | ReactJs |</p>
                     </Grid>
                     <a href="https://www.linkedin.com/in/sergiolneves/" target="_blank">
                         <Grid>
