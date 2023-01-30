@@ -61,21 +61,6 @@ function TimelinePostagem() {
     getPost()
   }, [posts.length])
 
-
-
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-
-
-
   return (
     <>
       {
@@ -86,42 +71,6 @@ function TimelinePostagem() {
                 <Avatar sx={{ bgcolor: green[700] }} aria-label="recipe">
                   <img className='imgCards' src={post.usuario?.foto} alt="" />
                 </Avatar>
-              }
-              action={
-                <><IconButton onClick={handleOpenNavMenu}
-                  color="inherit">
-                  <MoreVertIcon />
-                </IconButton><Menu 
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                >
-                    <MenuItem onClick={handleCloseNavMenu}>
-                      <Link to={`/formularioPostagem/${post.id}`} className="linksCards">
-                        <Button variant="outlined" size='small' sx={{ bgcolor: green[200], maxWidth: '18vh', justifyContent: 'center' }} color="inherit" endIcon={<EditIcon />}>
-                          Editar
-                        </Button>
-                      </Link>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNavMenu}>
-                      <Link to={`/deletarPostagem/${post.id}`} className="linksCards">
-                        <Button variant="outlined" size='small' sx={{bgcolor: green[200], maxWidth: '18vh', justifyContent: 'center' }} color="inherit" endIcon={<DeleteIcon />}>
-                          Deletar
-                        </Button>
-                      </Link>
-                    </MenuItem>
-
-                  </Menu></>
               }
               title={post.usuario?.nome}
               subheader={post.tema?.temaPrincipal}
@@ -134,11 +83,26 @@ function TimelinePostagem() {
                 {post.texto}
               </Typography>
             </CardContent>
+            <CardActions>
+              <MenuItem>
+                <Link to={`/formularioPostagem/${post.id}`} className="linksCards">
+                  <Button variant="outlined" size='small' sx={{ bgcolor: green[200], maxWidth: '18vh', justifyContent: 'center' }} color="inherit" endIcon={<EditIcon />}>
+                    Editar
+                  </Button>
+                </Link>
+              </MenuItem>
+              <MenuItem >
+                <Link to={`/deletarPostagem/${post.id}`} className="linksCards">
+                  <Button variant="outlined" size='small' sx={{ bgcolor: green[200], maxWidth: '18vh', justifyContent: 'center' }} color="inherit" endIcon={<DeleteIcon />}>
+                    Deletar
+                  </Button>
+                </Link>
+              </MenuItem>
+            </CardActions>
           </Card>
         ))
       }
     </>
   )
 }
-
 export default TimelinePostagem;

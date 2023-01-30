@@ -9,7 +9,7 @@
 }
 
 .fundo {
-    background: linear-gradient(rgba(0, 250, 75, 0.5), transparent);
+    background: linear-gradient(rgb(0 255 76 / 49%),#5dff5d45);
 }
 
 .txt1 {
@@ -70,7 +70,6 @@
 .font {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
 
 .fundoLogin {
     background-color: #dff8e5;

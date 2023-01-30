@@ -85,7 +85,7 @@ function ModalCadastroUsuario() {
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid item sm={10} alignItems='center' >
+            <Grid item xs={10} sm={10} md={6} alignItems='center' >
                 <Box >
                     <form onSubmit={onSubmit}>
                         <Box>

@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Grid } from "@material-ui/core";
 import './CadastroPost.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 import User from '../../../models/User';
-import { Box } from '@mui/material';
 
 function CadastroPost() {
     let navigate = useNavigate();
@@ -69,7 +68,7 @@ function CadastroPost() {
             tema: tema,
             usuario: usuario
         })
-    }, [tema, usuario])
+    }, [tema,usuario])
 
     useEffect(() => {
         getTemas()
@@ -166,10 +165,10 @@ function CadastroPost() {
 
     return (
         <>
-            <Grid container direction='row' justifyContent='center' alignItems='center'>
-                <Grid item xs={6} sm={6} alignItems='center' >
-                    <form onSubmit={onSubmit}>
-                        <Grid xs={6}>
+            <Container maxWidth="sm" className="topo">
+                <form onSubmit={onSubmit}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={12}>
                             <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
                                 id="titulo"
                                 label="Titulo"
@@ -178,17 +177,19 @@ function CadastroPost() {
                                 margin="normal"
                                 fullWidth />
                         </Grid>
-                        <Box>
+                        <Grid item xs={12} sm={12}>
                             <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
                                 id="texto"
-                                label="O que está pensando?"
+                                label="TEXTO"
                                 name="texto"
                                 variant="filled"
-                                margin="dense"
-                                multiline />
-                        </Box>
-                        <Grid>
-                            <Grid>
+                                margin="normal"
+                                fullWidth
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <FormControl >
+                                
                                 <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                                 <Select
                                     labelId="demo-simple-select-helper-label"
@@ -204,10 +205,9 @@ function CadastroPost() {
                                         ))
                                     }
                                 </Select>
-                                <FormHelperText>Escolha um tema para sua postagem</FormHelperText>
-                            </Grid>
-                            <Grid>
-                                <InputLabel id="demo-simple-select-helper-label">Usuário</InputLabel>
+                                <FormControl>
+                                <FormHelperText>Escolha um tema para a postagem</FormHelperText>
+                                <InputLabel id="demo-simple-select-helper-label">Usuário </InputLabel>
                                 <Select
                                     labelId="demo-simple-select-helper-label"
                                     id="demo-simple-select-helper"
@@ -222,31 +222,21 @@ function CadastroPost() {
                                         ))
                                     }
                                 </Select>
-                                <FormHelperText>Usuário para a postagem</FormHelperText>
-                            </Grid>
-                            <Grid>
-                                <Box marginTop={2} textAlign='center' display='flex' alignItems='center' justifyContent='space-evenly'>
-                                    <Box>
-                                        <Button type="submit" variant="contained" color="primary">
-                                            Finalizar
-                                        </Button>
-                                    </Box>
-                                    <Box>
-                                        <Button variant='contained' color='secondary'>
-                                            <Link to='/home' className='text-decorator-none'>
-                                                Voltar
-                                            </Link>
-                                        </Button>
-                                    </Box>
-                                </Box>
-                            </Grid>
-
+                                </FormControl>
+                                <Button type="submit" variant="contained" color="primary">
+                                    Finalizar
+                                </Button>
+                            </FormControl>
                         </Grid>
-                    </form>
-                </Grid >
-            </Grid>
+
+                    </Grid>
+                </form>
+            </Container>
+
+
         </>
     )
+
 }
 
 export default CadastroPost;

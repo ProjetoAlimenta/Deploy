@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Typography, Grid, Button } from '@material-ui/core';
-import { Box, Card, Toolbar } from '@mui/material';
+import { Box, Card, Toolbar, useMediaQuery } from '@mui/material';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import './Home.css';
 import { useNavigate } from 'react-router';
@@ -34,16 +34,31 @@ function Home() {
 
         }
     }, [token])
+
+    const matches3 = useMediaQuery('(max-width:1023px)');
+    const matches4 = useMediaQuery('(min-width:1023px)');
+
     return (
         <>
-            <Grid container direction="row-reverse" justifyContent="center" alignItems="center" className='caixa'>
-                <Box marginTop={2}>
+            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
+                <Box marginTop={2} marginBottom={2}>
                     <Grid alignItems="center" item xs={12} sm={12} md={12} lg={6}>
-                        <Box display="flex" justifyContent="center">
-                            <Box>
-                                <ModalPostagem />
+                    {matches4 ? null :
+                            <Box marginTop={2} marginBottom={2} textAlign='center'>
+                                <Button type='submit' variant='contained' className="btnModal" >
+                                    <Link className='text-decorator-none' to='/formularioPostagem'>
+                                        Postar
+                                    </Link>
+                                </Button>
                             </Box>
-                        </Box>
+                        }
+                        {matches3 ? null :
+                            <Box marginTop={2} marginBottom={2} textAlign='center'>
+                                <Box marginRight={1}>
+                                    <ModalPostagem />
+                                </Box>
+                            </Box>
+                        }
                         <Box marginLeft={0.5}>
                             <TimelinePostagem />
                         </Box>

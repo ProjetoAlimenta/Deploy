@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Contatos from './components/contatos/Contatos';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <ToastContainer />
       <Router>
         <Navbar />
-        <div style={{ minHeight: '83vh' }}>
+        <div style={{ minHeight: '83vh'}}>
           <Routes>
 
             <Route path="/" element={<Login />} />
@@ -31,6 +32,8 @@ function App() {
             <Route path="/login" element={<Login />} />
 
             <Route path="/home" element={<Home />} />
+
+            <Route path="/contatos" element={<Contatos />} />
 
             <Route path="/cadastrousuario" element={<CadastroUsuario />} />
 
@@ -51,7 +54,9 @@ function App() {
 
           </Routes>
         </div>
-        <Footer />
+        <div style={{ minHeight: '5vh' }}>
+          <Footer />
+        </div>
 
       </Router>
     </Provider>

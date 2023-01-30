@@ -20,8 +20,7 @@ import './Navbar.css';
 
 const home = ['Home']
 const criarTemas = ['Criar Temas'];
-const postar = ['Postar'];
-const posts = ['Postagens'];
+const contatos = ['Contatos'];
 const temas = ['Temas'];
 const logouts = ['Logout'];
 
@@ -116,10 +115,10 @@ function Navbar() {
                                     </Link>
                                 </MenuItem>
                             ))}
-                            {postar.map((postar) => (
-                                <MenuItem key={postar} onClick={handleCloseNavMenu}>
-                                    <Link to='/formularioPostagem' className="cursor text-decorator-none fontpreto">
-                                        <Typography textAlign="center">{postar}</Typography>
+                            {contatos.map((contatos) => (
+                                <MenuItem key={contatos} onClick={handleCloseNavMenu}>
+                                    <Link to='/contatos' className="cursor text-decorator-none fontpreto">
+                                        <Typography textAlign="center">{contatos}</Typography>
                                     </Link>
                                 </MenuItem>
                             ))}
@@ -163,15 +162,15 @@ function Navbar() {
                             ))}
                         </Box>
                         <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
-                            {postar.map((postar) => (
-                                <Link to='/formularioPostagem' className="text-decorator-none cursor">
+                            {contatos.map((contatos) => (
+                                <Link to='/contatos' className="text-decorator-none cursor">
                                     <Button
                                         className="colorNav"
-                                        key={postar}
+                                        key={contatos}
                                         onClick={handleCloseNavMenu}
                                         sx={{ my: 1, color: 'white', display: 'block' }}
                                     >
-                                        {postar}
+                                        {contatos}
                                     </Button>
                                 </Link>
                             ))}
