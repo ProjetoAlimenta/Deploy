@@ -3,6 +3,18 @@
    font-weight: bold !important;
 }
 
+.boxUsuarios{
+    background-color: green;
+    border-radius: 22px 22px 0px 0px;
+}
+
+.textoUsuario{
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color:white
+}
+
 .botao{
     border-color: rgb(0, 0, 0) !important;
     color: rgb(0, 0, 0) !important;
@@ -48,3 +60,6 @@
 }
 
 
+.btnModalHome{
+    background-color: green !important;
+}

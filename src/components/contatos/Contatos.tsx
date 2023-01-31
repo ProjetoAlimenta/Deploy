@@ -9,7 +9,7 @@ function Contatos() {
 
     componenteContatos =
         <Grid container direction='row'>
-            <Box marginTop={2}>
+            <Box marginLeft={2} marginTop={2}>
                 <Grid xs={12} sm={12}>
                     <Grid className='displayGrid'>
                         <Grid className="property-card">
@@ -69,7 +69,7 @@ function Contatos() {
                             </a>
                             <Grid className="property-description">
                                 <h5>Janderson Pires</h5>
-                                <p>26 anos. Estou es transição de carreira, sou Desenvolvedor Web e tenho conhecimento em linguagem JavaScript e TypeScript  e para o banco de dados o MySQl.
+                                <p>26 anos. Estou em transição de carreira, sou Desenvolvedor Web e tenho conhecimento em linguagem JavaScript e TypeScript  e para o banco de dados o MySQl.
                                 </p>
                             </Grid>
                             <a href="https://www.linkedin.com/in/janderson-pires-44184b243/" target="_blank">

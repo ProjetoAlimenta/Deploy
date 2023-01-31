@@ -31,6 +31,8 @@ body {
   /* End Non-Essential  */  
 .property-card {
     height: 18em;
+    margin-right:8%;
+    margin-bottom: 4%;
     width: 14em;
     display: -webkit-box;
     display: -ms-flexbox;

@@ -20,8 +20,8 @@ import './Navbar.css';
 
 const home = ['Home']
 const criarTemas = ['Criar Temas'];
-const contatos = ['Sobre'];
-const temas = ['Temas'];
+const contatos = ['Integrantes'];
+const temas = ['Configurar Temas'];
 const logouts = ['Logout'];
 
 function Navbar() {
@@ -73,11 +73,11 @@ function Navbar() {
                 <Toolbar disableGutters className='modelo'>
                     <Link to='/home' className="text-decorator-none cursor">
                         <Typography variant="h5" noWrap component="a" className="blogSergio colorNav"
-                            sx={{ display: { xs: 'none', md: 'flex' }}} >
+                            sx={{ display: { xs: 'none', md: 'flex' } }} >
                             AlimentAção
                         </Typography>
                     </Link>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -122,16 +122,9 @@ function Navbar() {
                                     </Link>
                                 </MenuItem>
                             ))}
-                            {temas.map((tema) => (
-                                <MenuItem key={tema} onClick={handleCloseNavMenu}>
-                                    <Link to='/temas' className="cursor text-decorator-none fontpreto">
-                                        <Typography textAlign="center">{tema}</Typography>
-                                    </Link>
-                                </MenuItem>
-                            ))}
                         </Menu>
                     </Box>
-                    <Box sx={{display:'flex'}}>
+                    <Box sx={{ display: 'flex' }}>
                         <Link to='/home' className="text-decorator-none cursor">
                             <Typography
                                 variant="h6"
@@ -144,8 +137,8 @@ function Navbar() {
                                     color: 'inherit'
                                 }}
                             >
-                                Alimentação
-                            </Typography>
+                                AlimentAção         
+                                                   </Typography>
                         </Link>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {home.map((home) => (
@@ -175,25 +168,11 @@ function Navbar() {
                                 </Link>
                             ))}
                         </Box>
-                        <Box sx={{ flexGrow: 4, display: { xs: 'none', md: 'flex' } }}>
-                            {temas.map((tema) => (
-                                <Link to='/temas' className="text-decorator-none cursor">
-                                    <Button
-                                        className="colorNav"
-                                        key={tema}
-                                        onClick={handleCloseNavMenu}
-                                        sx={{ my: 1, color: 'white', display: 'block' }}
-                                    >
-                                        {tema}
-                                    </Button>
-                                </Link>
-                            ))}
-                        </Box>
                     </Box>
                     <Box sx={{ flexGrow: 0, }}>
                         <Tooltip title="Opões do Usuário">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="" src="" />
+                                <Avatar className='avatarNavbar' alt="" src="https://cdn-icons-png.flaticon.com/512/184/184970.png" />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -216,6 +195,13 @@ function Navbar() {
                                 <MenuItem key={criartema} onClick={handleCloseUserMenu}>
                                     <Link to='/formularioTema' className="cursor text-decorator-none fontpreto">
                                         <Typography textAlign="center">{criartema}</Typography>
+                                    </Link>
+                                </MenuItem>
+                            ))}
+                            {temas.map((editartema) => (
+                                <MenuItem key={editartema} onClick={handleCloseUserMenu}>
+                                    <Link to='/temas' className="cursor text-decorator-none fontpreto">
+                                        <Typography textAlign="center">{editartema}</Typography>
                                     </Link>
                                 </MenuItem>
                             ))}

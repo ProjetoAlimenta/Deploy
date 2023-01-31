@@ -6,6 +6,11 @@
     cursor: pointer;
 }
 
+.avatarNavbar{
+    width: 102%;
+    border-radius: 50%; 
+}
+
 .blogSergio {
     font-Weight: 700 !important;
     font-family: 'monospace';

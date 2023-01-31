@@ -16,11 +16,11 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 import { busca } from '../../../services/Service';
-import User from '../../../models/User';
+import Tema from '../../../models/Tema';
 
 
-function ListarUsuarios() {
-  const [users, setUsers] = useState<User[]>([])
+function ListarTemasHome() {
+  const [temas, setTemas] = useState<Tema[]>([])
   let navigate = useNavigate();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
@@ -43,8 +43,8 @@ function ListarUsuarios() {
     }
   }, [token])
 
-  async function getUser() {
-    await busca("/usuarios/all", setUsers, {
+  async function getTemas() {
+    await busca("/tema", setTemas, {
       headers: {
         'Authorization': token
       }
@@ -52,21 +52,21 @@ function ListarUsuarios() {
   }
 
   useEffect(() => {
-    getUser()
-  }, [users.length])
+    getTemas()
+  }, [temas.length])
 
   return (
     <>
       {
-        users.map(user => (
+        temas.map(tema => (
           <Card sx={{backgroundColor:'#adffad', marginBottom:'2px'}}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: green[700] }} aria-label="recipe">
-                  <img className='imgCards' src={user.foto} alt="" />
+                  <img className='imgCards' src="https://cdn-icons-png.flaticon.com/512/184/184970.png" alt="" />
                 </Avatar>
               }
-              title={user.nome}
+              title={tema.temaPrincipal}
             />
           </Card>
         ))
@@ -74,4 +74,4 @@ function ListarUsuarios() {
     </>
   )
 }
-export default ListarUsuarios;
+export default ListarTemasHome;

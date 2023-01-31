@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Typography, Grid, Button } from '@material-ui/core';
-import { Box, Card, Toolbar, useMediaQuery } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import './Home.css';
 import { useNavigate } from 'react-router';
@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import TimelinePostagem from '../../components/postagens/timelinePostagem/TimelinePostagem';
 import ListarUsuarios from '../../components/usuarios/listarUsuarios/ListarUsuarios';
+import ListarTemasHome from '../../components/temas/listarTemaHome/listarTemaHome';
 
 
 function Home() {
@@ -43,36 +44,35 @@ function Home() {
         <>
             <Grid container direction="row" justifyContent="center" className='caixa'>
                 <Box marginTop={2} marginBottom={2}>
-                    <Grid alignItems="center" item xs={12} sm={12} md={12} lg={6}>
-                        {matches4 ? null :
+                    <Grid alignItems="center" item xs={12} sm={12} md={12} lg={6}>   
                             <Box marginTop={2} marginBottom={2} textAlign='center'>
-                                <Button type='submit' variant='contained' className="btnModal" >
-                                    <Link className='text-decorator-none' to='/formularioPostagem'>
+                                <Button type='submit' variant='contained' className="btnModalHome" >
+                                    <Link color='white' className='text-decorator-none' to='/formularioPostagem'>
                                         Postar
                                     </Link>
                                 </Button>
                             </Box>
-                        }
-                        {matches3 ? null :
-                            <Box marginTop={2} marginBottom={2} textAlign='center'>
-                                <Box marginRight={1}>
-                                    <ModalPostagem />
-                                </Box>
-                            </Box>
-                        }
                         <Box marginLeft={0.5}>
                             <TimelinePostagem />
                         </Box>
                     </Grid>
                 </Box>
                 {matches3 ? null :
-                    <Grid sm={4}>
-                        <Box marginTop={5.8} marginLeft={2}>
-                            <Typography variant="h6" gutterBottom>
+                    <Grid sm={5}>
+                        <Box marginTop={5.8} marginLeft={2} className='boxUsuarios'>
+                            <Typography variant="h6" gutterBottom className='textoUsuario'>
                                 Usuários
                             </Typography>
                             <Box>
                                 <ListarUsuarios />
+                            </Box>
+                        </Box>
+                        <Box marginTop={5.8} marginLeft={2} className='boxUsuarios'>
+                            <Typography variant="h6" gutterBottom className='textoUsuario'>
+                                Temas em alta
+                            </Typography>
+                            <Box>
+                                <ListarTemasHome />
                             </Box>
                         </Box>
                     </Grid>
