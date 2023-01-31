@@ -163,6 +163,8 @@ function CadastroPost() {
         navigate('/home')
     }
 
+
+    
     return (
         <>
             <Container maxWidth="sm" className="topo">

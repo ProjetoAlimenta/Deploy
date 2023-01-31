@@ -20,7 +20,7 @@ import './Navbar.css';
 
 const home = ['Home']
 const criarTemas = ['Criar Temas'];
-const contatos = ['Contatos'];
+const contatos = ['Sobre'];
 const temas = ['Temas'];
 const logouts = ['Logout'];
 
@@ -74,7 +74,7 @@ function Navbar() {
                     <Link to='/home' className="text-decorator-none cursor">
                         <Typography variant="h5" noWrap component="a" className="blogSergio colorNav"
                             sx={{ display: { xs: 'none', md: 'flex' }}} >
-                            Alimentação
+                            AlimentAção
                         </Typography>
                     </Link>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>

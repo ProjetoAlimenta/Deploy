@@ -257,3 +257,5 @@ body {
   align-items: center;
 }
   
+@import "react-alice-carousel/lib/alice-carousel.css"
+

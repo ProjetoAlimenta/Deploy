@@ -9,6 +9,7 @@ import { TokenState } from '../../store/tokens/tokensReducer';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import TimelinePostagem from '../../components/postagens/timelinePostagem/TimelinePostagem';
+import ListarUsuarios from '../../components/usuarios/listarUsuarios/ListarUsuarios';
 
 
 function Home() {
@@ -35,15 +36,15 @@ function Home() {
         }
     }, [token])
 
-    const matches3 = useMediaQuery('(max-width:1023px)');
-    const matches4 = useMediaQuery('(min-width:1023px)');
+    const matches3 = useMediaQuery('(max-width:767px)');
+    const matches4 = useMediaQuery('(min-width:767px)');
 
     return (
         <>
-            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
+            <Grid container direction="row" justifyContent="center" className='caixa'>
                 <Box marginTop={2} marginBottom={2}>
                     <Grid alignItems="center" item xs={12} sm={12} md={12} lg={6}>
-                    {matches4 ? null :
+                        {matches4 ? null :
                             <Box marginTop={2} marginBottom={2} textAlign='center'>
                                 <Button type='submit' variant='contained' className="btnModal" >
                                     <Link className='text-decorator-none' to='/formularioPostagem'>
@@ -64,7 +65,18 @@ function Home() {
                         </Box>
                     </Grid>
                 </Box>
-
+                {matches3 ? null :
+                    <Grid sm={4}>
+                        <Box marginTop={5.8} marginLeft={2}>
+                            <Typography variant="h6" gutterBottom>
+                                Usuários
+                            </Typography>
+                            <Box>
+                                <ListarUsuarios />
+                            </Box>
+                        </Box>
+                    </Grid>
+                }
             </Grid>
         </>
     );

@@ -1,8 +1,6 @@
-.cardProp{
-    min-width:307px !important;
-    max-width: 307px !important;
-    margin-top: 5% !important;
-    background-color: rgb(173, 255, 173) !important;
+.cardPropUsuario{
+    padding: 3px !important;
+    background-color: limegreen !important;
 }
 
 .tituloCard{
