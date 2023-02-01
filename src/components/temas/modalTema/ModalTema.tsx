@@ -3,9 +3,9 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button} from "@material-ui/core";
 import {Box} from '@mui/material';
-import './ModalPostagem.css';
-import CloseIcon from '@mui/icons-material/Close';
-import CadastroPost from '../cadastroPost/CadastroPost';
+
+import '../modalTema/ModalTema.css';
+import CadastroTema from '../cadastroTema/CadastroTema';
 
 
 function getModalStyle() {
@@ -20,19 +20,19 @@ function getModalStyle() {
 }
 
 const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        paper: {
-            position: 'absolute',
-            width: 700,
-            background: 'linear-gradient(rgba(0, 250, 75, 1),white)',
-            border: '2px solid #000',
-            boxShadow: theme.shadows[2],
-            padding: theme.spacing(2, 4, 3),
-        },
-    }),
+  createStyles({
+    paper: {
+      position: 'absolute',
+      width: 600,
+      backgroundColor: theme.palette.background.paper,
+      border: '2px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+  }),
 );
 
-function ModalPostagem () {
+function ModalTema () {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
@@ -48,18 +48,21 @@ function ModalPostagem () {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Box display="flex" justifyContent="flex-end" className="cursor">
-        <CloseIcon onClick={handleClose}/>
+   
+      
       </Box>
-      <CadastroPost/>
+      
+      <CadastroTema/>
+      
     </div>
   );
 
   return (
     <div>
       <Button
-        variant="contained"
+        variant="outlined"
         className="btnModal"
-        onClick={handleOpen}>Postar</Button>
+        onClick={handleOpen}>Novo Tema</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -71,4 +74,4 @@ function ModalPostagem () {
     </div>
   );
 }
-export default ModalPostagem
+export default ModalTema

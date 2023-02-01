@@ -20,11 +20,11 @@ function Footer() {
                     </Box>
                     <Box className='boxs'>
                         <Box paddingTop={1}>
-                            <Typography variant="subtitle2" align="center"  className='textos' gutterBottom  >Projeto AlimentAção© 2022 Copyright:</Typography>
+                            <Typography variant="subtitle2" align="center"  className='textos' gutterBottom  >Projeto AlimentAção© 2023 Copyright:</Typography>
                         </Box>
                         <Box className='boxs'>
                             <a target="_blank" href="" rel="" className='textos'>
-                                <Typography variant="subtitle2" gutterBottom align="center" >Projeto.AlimentAção.org</Typography>
+                                <Typography variant="subtitle2" gutterBottom align="center" >Projeto Alimentação</Typography>
                             </a>
                         </Box>
                     </Box>

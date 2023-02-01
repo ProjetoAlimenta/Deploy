@@ -18,8 +18,7 @@ function CadastroTema() {
       );
     const [tema, setTema] = useState<Tema>({
         id: 0,
-        temaPrincipal: 'Fome',
-        descricao: ''
+        temaPrincipal: ''
     })
 
     useEffect(() => {
@@ -120,7 +119,7 @@ function CadastroTema() {
            
             
             <form onSubmit={onSubmit}>
-                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="Tema" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <TextField value={tema.temaPrincipal} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="temaPrincipal" label="Tema" variant="outlined" name="temaPrincipal" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Publicar
                 </Button>

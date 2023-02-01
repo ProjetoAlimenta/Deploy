@@ -49,7 +49,7 @@ function DeletarPostagem() {
         }
 
         function sim() {
-          navigate('/postagens')
+          navigate('/home')
             deleteId(`/postagens/${id}`, {
               headers: {
                 'Authorization': token
@@ -68,7 +68,7 @@ function DeletarPostagem() {
           }
         
           function nao() {
-            navigate('/posts')
+            navigate('/home')
           }
   return (
     <>
@@ -77,7 +77,7 @@ function DeletarPostagem() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                Deseja deletar a Postagem:
+                Você tem certeza que deseja deletar a postagem:
               </Typography>
               <Typography color="textSecondary" >
               {post?.titulo}

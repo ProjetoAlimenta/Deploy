@@ -1,35 +1,85 @@
-.textos1{
-   font-weight: bold !important;
+.textos1 {
+    font-weight: bold !important;
 }
 
-.imagem{
-    background-image: url(img/login.png);
-    background-repeat: no-repeat;
-    width: 100vh;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
 
-.text-decorator-none{
+.text-decorator-none {
     text-decoration: none;
+    color: white;
 }
 
-.fundo{
-    background:linear-gradient(rgba(0, 250, 75, 0.5),transparent);
+.fundo {
+    background: linear-gradient(rgb(0 255 76 / 49%),#5dff5d45);
 }
 
-.button{
+.txt1 {
+    color: #000000;
+    font-weight: 700 !important;
+    font-size: 30px !important;
+    padding-top: 80px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.txt2 {
+    color: #000000;
+    font-weight: 700 !important;
+    font-size: 60px !important;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.txt3 {
+    color: #000000;
+    font-weight: normal;
+    justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.txt4 {
+    color: #000000;
+    font-size: 20px !important;
+    font-weight: normal;
+    font-family: monospace;
+}
+
+.verde {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+.login {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.padding5 {
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.Entrar {
     background-color: #28c728 !important;
-    border-radius: 10px !important;
-    width: 150px;
+    border-radius: 10% !important;
 }
 
-.fundoLogin{
-    background-color:#dff8e5;
+.Cadastrar {
+    background-color: #2885c7 !important;
+    border-radius: 8px !important;
+}
+
+.font {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.fundoLogin {
+    background-color: #dff8e5;
     border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 8px;
     border: solid #b1debc;
+}
+
+.tamanhoCaixa {
+    display: contents;
 }

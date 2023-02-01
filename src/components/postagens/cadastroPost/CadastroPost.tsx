@@ -8,14 +8,17 @@ import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import User from '../../../models/User';
 
 function CadastroPost() {
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([])
+    const [usuarios, setUsuarios] = useState<User[]>([])
+
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
+    );
 
     useEffect(() => {
         if (token == "") {
@@ -37,23 +40,35 @@ function CadastroPost() {
     const [tema, setTema] = useState<Tema>(
         {
             id: 0,
-            temaPrincipal: 'Fome',
-            descricao: ''
+            temaPrincipal: ''
         })
+
+    const [usuario, setUsuario] = useState<User>(
+        {
+            id: 0,
+            nome: '',
+            usuario: '',
+            senha: '',
+            foto: '',
+        })
+
+
     const [postagem, setPostagem] = useState<Postagem>({
         id: 0,
         titulo: '',
         texto: '',
-        data: '',
-        tema: null
+        tema: null,
+        usuario: null
+
     })
 
-    useEffect(() => { 
+    useEffect(() => {
         setPostagem({
             ...postagem,
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
-    }, [tema])
+    }, [tema,usuario])
 
     useEffect(() => {
         getTemas()
@@ -70,6 +85,21 @@ function CadastroPost() {
         })
     }
 
+    async function getUsers() {
+        await busca("/usuarios/all", setUsuarios, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
+    useEffect(() => {
+        getUsers()
+        if (id !== undefined) {
+            findByIdPostagem(id)
+        }
+    }, [id])
+
     async function findByIdPostagem(id: string) {
         await buscaId(`postagens/${id}`, setPostagem, {
             headers: {
@@ -83,7 +113,8 @@ function CadastroPost() {
         setPostagem({
             ...postagem,
             [e.target.name]: e.target.value,
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
 
     }
@@ -129,47 +160,80 @@ function CadastroPost() {
     }
 
     function back() {
-        navigate('/postagens')
+        navigate('/home')
     }
 
+
+    
     return (
         <>
-<Grid className='centralizarImg'>
-            <img src='https://cdn.discordapp.com/attachments/1011758147494498377/1055504651795054712/sale-removebg-preview.png'></img>
+            <Container maxWidth="sm" className="topo">
+                <form onSubmit={onSubmit}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={12}>
+                            <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
+                                id="titulo"
+                                label="Titulo"
+                                variant="outlined"
+                                name="titulo"
+                                margin="normal"
+                                fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
+                                id="texto"
+                                label="TEXTO"
+                                name="texto"
+                                variant="filled"
+                                margin="normal"
+                                fullWidth
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <FormControl >
+                                
+                                <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-helper-label"
+                                    id="demo-simple-select-helper"
+                                    onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
+                                        headers: {
+                                            'Authorization': token
+                                        }
+                                    })}>
+                                    {
+                                        temas.map(tema => (
+                                            <MenuItem value={tema.id}>{tema.temaPrincipal}</MenuItem>
+                                        ))
+                                    }
+                                </Select>
+                                <FormControl>
+                                <FormHelperText>Escolha um tema para a postagem</FormHelperText>
+                                <InputLabel id="demo-simple-select-helper-label">Usuário </InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-helper-label"
+                                    id="demo-simple-select-helper"
+                                    onChange={(e) => buscaId(`/usuarios/${e.target.value}`, setUsuario, {
+                                        headers: {
+                                            'Authorization': token
+                                        }
+                                    })}>
+                                    {
+                                        usuarios.map(usuario => (
+                                            <MenuItem value={usuario.id}>{usuario.nome}</MenuItem>
+                                        ))
+                                    }
+                                </Select>
+                                </FormControl>
+                                <Button type="submit" variant="contained" color="primary">
+                                    Finalizar
+                                </Button>
+                            </FormControl>
+                        </Grid>
 
-            </Grid>
-        
-        
-        <Container maxWidth="sm" className="topo">
-            <form onSubmit={onSubmit}>
-                {/* <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography> */}
-                <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="TITULO" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="TEXTO" name="texto" variant="outlined" margin="normal" fullWidth />
-                <TextField value={postagem.data} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="data" label="ANO/MES/DIA" name="data" variant="outlined" margin="normal" fullWidth />
-
-                <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
-                            headers: {
-                                'Authorization': token
-                            }
-                        })}>
-                        {
-                            temas.map(tema => (
-                                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
-                        Finalizar
-                    </Button>
-                </FormControl>
-            </form>
-        </Container>
+                    </Grid>
+                </form>
+            </Container>
 
 
         </>
