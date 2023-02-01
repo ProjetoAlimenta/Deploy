@@ -1,0 +1,16 @@
+.topo{
+    margin-top: 20px;
+    
+}
+
+.centralizarImg{
+
+margin-top: 10px !important;
+background-repeat: no-repeat !important;
+background-position: center !important;
+align-items: center !important;
+text-align: center!important;
+background:linear-gradient(rgba(0, 250, 75, 0.5),transparent);
+
+
+}

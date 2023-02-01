@@ -1,0 +1,44 @@
+.text-decorator-none {
+    text-decoration: none !important;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.avatarNavbar{
+    width: 102%;
+    border-radius: 50%; 
+}
+
+.blogSergio {
+    font-Weight: 700 !important;
+    font-family: 'monospace';
+    letter-spacing: .1rem !important;
+    text-decoration: none !important;
+}
+
+.colorNav {
+    color: rgb(255, 255, 255) !important;
+}
+
+.colorNav:hover {
+    transition: 0.2s !important;
+    color: rgb(115, 124, 255) !important;
+}
+
+.bgdark{
+    color: rgb(37, 37, 37);
+}
+
+.fontpreto{
+    color:black !important;
+    font-weight: 700 !important;
+}
+
+.modelo{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}

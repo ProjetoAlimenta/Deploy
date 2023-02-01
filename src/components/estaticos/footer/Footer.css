@@ -1,0 +1,36 @@
+.grids{
+    background-color: #000000;
+    height: 120px !important;
+}
+
+.boxs{
+    background-color: green /*#003918*/;
+    height: 60px !important;
+}
+
+.redes{
+    font-size: 60px !important;
+    color: white;
+    width: 70px;
+    height: 70px;
+}
+
+.textos{
+   color: white;
+   text-decoration: none !important;
+}
+
+.ButtonVoltar {
+    font-size: 50px !important;
+    width: 60px;
+    height: 60px;
+    transition: 0.4s;
+    justify-content: flex-end;
+}
+
+.ButtonVoltar:hover {
+    font-size: 55px !important;
+    width: 65px;
+    height: 65px;
+    transition: 0.4s;
+}

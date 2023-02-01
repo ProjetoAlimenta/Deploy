@@ -1,0 +1,44 @@
+.textos2{
+    font-weight: bold !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+.btnCancelar{
+    margin-right: 20px !important;
+    border-radius: 10px !important;
+    
+}
+
+.button{
+    background-color: #28c728 !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+
+.fundo7{
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 8px;
+    border: solid #b1debc;
+    
+}
+    
+.fundo8{
+    background:linear-gradient(rgb(0 255 76 / 49%),#5dff5d45);
+    min-height: 100vh;
+}
+
+.textocadastro {
+    padding-left: 5px;
+    font-size:unset
+}
+
+.cadastre{
+    color:black
+}
+
+.registrar{
+    background-color: #28c728 !important;
+}

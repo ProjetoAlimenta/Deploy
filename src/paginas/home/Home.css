@@ -1,0 +1,65 @@
+.titulo{
+   color: rgb(0, 0, 0) !important;
+   font-weight: bold !important;
+}
+
+.boxUsuarios{
+    background-color: green;
+    border-radius: 22px 22px 0px 0px;
+}
+
+.textoUsuario{
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color:white
+}
+
+.botao{
+    border-color: rgb(0, 0, 0) !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+.postagens{
+    background:linear-gradient(rgba(0, 250, 75, 0.5),transparent);
+}
+
+.text-decorator-none{
+    text-decoration: none;
+   
+}
+
+.caixa{
+    background:linear-gradient(rgba(0, 250, 75, 0.5),transparent);
+}
+
+.t1 {
+    color: #000000;
+    font-weight: 700 !important;
+    font-size: 30px !important;
+    padding-top: 80px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.t2 {
+    color: #000000;
+    font-weight: 700 !important;
+    font-size: 60px !important;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.t3{
+    color: #000000;
+    font-weight: normal;
+    justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.colorGreen {
+    color: green
+}
+
+
+.btnModalHome{
+    background-color: green !important;
+}

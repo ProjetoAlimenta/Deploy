@@ -1,0 +1,263 @@
+/*CARD___________________________________________________________________________*/
+body {
+    background-color: #f2f2f2;
+    font-family: 'RobotoDraft', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  h5 {
+    margin: 0px;
+    font-size: 1.4em;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 12px;
+  }
+  
+  .center {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* End Non-Essential  */  
+.property-card {
+    height: 18em;
+    margin-right:8%;
+    margin-bottom: 4%;
+    width: 14em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  /* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
+  
+  /* Top Half of card, image. */
+  
+  .property-imageSergio {
+    height: 6em;
+    width: 14em;
+    padding: 1em 2em;
+    position: Absolute;
+    top: 0px;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: url('https://media-exp1.licdn.com/dms/image/C4E03AQEoZUDJHV9HQA/profile-displayphoto-shrink_400_400/0/1660775300125?e=1676505600&v=beta&t=d-lC2T_Exgv5CsIMSxcWdDwqjNRq4lHOxNAo-XKcq4A');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .property-imageMarcos {
+    height: 6em;
+    width: 14em;
+    padding: 1em 2em;
+    position: Absolute;
+    top: 0px;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: url('https://media-exp1.licdn.com/dms/image/D4D03AQF3338PCNfXPw/profile-displayphoto-shrink_400_400/0/1667299532401?e=1676505600&v=beta&t=fuTuH6LdZxyt_K7WLTjFdHDP0ubnAB9e-rhmA0QvhD8');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .property-imageJanderson {
+    height: 6em;
+    width: 14em;
+    padding: 1em 2em;
+    position: Absolute;
+    top: 0px;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: url('https://avatars.githubusercontent.com/u/112710246?v=4');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .property-imageFelipe {
+    height: 6em;
+    width: 14em;
+    padding: 1em 2em;
+    position: Absolute;
+    top: 0px;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: url('https://media-exp1.licdn.com/dms/image/C4E03AQGN_v9TDv2j9w/profile-displayphoto-shrink_400_400/0/1656441295248?e=1676505600&v=beta&t=HCFcPUDXwHw5Q3oXdxMXEnGthUar2w1hBRcdUkE7W9k');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .property-imageSilas {
+    height: 6em;
+    width: 14em;
+    padding: 1em 2em;
+    position: Absolute;
+    top: 0px;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: url('https://media-exp1.licdn.com/dms/image/C4D03AQG8oiZxZ_0zrQ/profile-displayphoto-shrink_400_400/0/1664164079907?e=1676505600&v=beta&t=yWWoS_pSgpsh_n7gK0oI3tcZoNHfQgmBzFg9r3TrmNg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .property-imageRaphael {
+    height: 6em;
+    width: 14em;
+    padding: 1em 2em;
+    position: Absolute;
+    top: 0px;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: url('https://media-exp1.licdn.com/dms/image/D4D03AQFl_9KqhZtrsA/profile-displayphoto-shrink_400_400/0/1669423102208?e=1676505600&v=beta&t=Of_duJ2Hy7GZHkGfY5_9720PbnL63cNtdtnmxVBx5Uw');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .property-imageWallace {
+    height: 6em;
+    width: 14em;
+    padding: 1em 2em;
+    position: Absolute;
+    top: 0px;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: url('https://cdn.discordapp.com/attachments/1024648442817036359/1051842887589040128/ss.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  /*__________________________________*/
+  /* Bottom Card Section */
+  
+  .property-description {
+    background-color: #FAFAFC;
+    height: 12em;
+    width: 14em;
+    position: absolute;
+    bottom: 0em;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 0.5em 1em;
+    text-align: center;
+  }
+  
+  /* Social Icons______________________________ */
+  
+  .property-social-iconsLinkedin {
+    width: 1em;
+    height: 1em;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  
+  .property-social-iconsGithub {
+    width: 1em;
+    height: 1em;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 1em;
+    left: 2.2em;
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  
+  /* Property Cards Hover States */
+  
+  .property-card:hover .property-description {
+    height: 0em;
+    padding: 0px 1em;
+  }
+  
+  /*IMAGEM PROPRIEDADES______________________________________________________*/
+  .property-card:hover .property-imageSergio {
+    height: 18em;
+  }
+  
+  .property-card:hover .property-imageJanderson {
+    height: 18em;
+  }
+  
+  .property-card:hover .property-imageMarcos {
+    height: 18em;
+  }
+  
+  .property-card:hover .property-imageFelipe {
+    height: 18em;
+  }
+  
+  .property-card:hover .property-imageSilas {
+    height: 18em;
+  }
+  
+  .property-card:hover .property-imageRaphael {
+    height: 18em;
+  }
+  
+  .property-card:hover .property-imageWallace {
+    height: 18em;
+  }
+  
+  /*CARD PROPRIEDADES_________________________________________________________*/
+  .property-card:hover .property-social-iconsLinkedin {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .property-card:hover .property-social-iconsLinkedin:hover {
+    background-color: green;
+    cursor: pointer;
+  }
+  
+  .property-card:hover .property-social-iconsGithub {
+    background-color: white;
+  }
+  
+  .property-card:hover .property-social-iconsGithub:hover {
+    background-color: green;
+    cursor: pointer;
+  }
+  
+  /*Display pra grid*/
+
+.displayGrid{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+  
+@import "react-alice-carousel/lib/alice-carousel.css"
+
